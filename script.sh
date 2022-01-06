@@ -14,8 +14,8 @@ echo
 
 if (( $ask == 1)); then
 
-sudo apt-get update -y
-sudo apt-get update -y
+sudo apt update -y
+sudo apt upgrade -y
 [ -f /var/run/reboot-required ]
 sudo reboot -f
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | gpg --dearmor | sudo tee /usr/share/keyrings/virtualbox-archive-keyring.gpg
@@ -29,12 +29,12 @@ virtualbox
 
 elif (( $ask == 2)); then
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install -y build-essential linux-headers-$( uname -r ) vlan libaio1
 [ -f /var/run/reboot-required ]
 sudo reboot -f
-sudo apt-get install -y curl
+sudo apt install -y curl
 curl -L https://www.vmware.com/go/getworkstation-linux > ~/Downloads/vmware.bin
 file Downloads/vmware.bin
 ls -lah Downloads/vmware.bin
@@ -48,7 +48,7 @@ elif (( $ask == 3)); then
 
 echo "Reference = https://www.kali.org/docs/virtualization/install-vmware-guest-tools/"
 sleep 5
-sudo apt-get update
+sudo apt update
 sudo apt install -y --reinstall open-vm-tools-desktop fuse
 sudo reboot -g
 echo "In the Kali Tweaks menu, select Virtualization, then Install additional packages and scripts for VMware. Congratulations, you now have two additional tools in your toolbox!"
@@ -62,7 +62,7 @@ elif (( $ask == 4 )); then
 
 echo "https://www.kali.org/docs/virtualization/install-virtualbox-guest-additions/"
 sleep 5
-sudo apt-get update
+sudo apt update
 sudo apt install -y --reinstall virtualbox-guest-x11
 sudo reboot -f
 
