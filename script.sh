@@ -6,6 +6,7 @@ echo "1. Virtualbox (host)"
 echo "2. VMware (host)"
 echo "3. Installing VMware tools (Guest Tools)"
 echo "4. Installing VirtualBox Guest Addtion (Guest Tools)"
+echo "5. Virtualbox from repo"
 echo "========================================================="
 
 read -p "number = " ask
@@ -69,6 +70,10 @@ sudo reboot -f
 echo "for older version of Kali Linux , here is our previous guide"
 echo "https://www.kali.org/docs/virtualization/install-virtualbox-guest-additions-legacy/"
 sleep 5
+
+elif (( $ask == 5 )); then
+
+sudo apt install virtualbox virtualbox-ext-pack -y
 
 else
   echo "Something Did it wrong"
